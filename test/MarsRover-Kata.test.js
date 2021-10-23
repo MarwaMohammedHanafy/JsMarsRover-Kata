@@ -21,12 +21,12 @@ afterEach(() => {
 });
 
 describe('Validate Inputs to marsRover', () => {
-    const dummyRover = {
+    const dummyRover = [{
         direction: 'N',
         position: { x: 0, y: 0 },
-    };
+    }];
     const dummyPlateau = { length: 5, width: 5 };
-    const dummyInstructions = "MMK";
+    const dummyInstructions = ["MMK"];
     test('it throws an error if not passed plateau ', () => {
         expect(() => {
             marsRover();
@@ -41,12 +41,12 @@ describe('Validate Inputs to marsRover', () => {
 });
 describe('Test if the movement function get called based on relevant instruction', () => {
     test('it calls moveRoverLeft when pass L ', () => {
-        const dummyRover = {
+        const dummyRover = [{
             direction: 'N',
             position: { x: 0, y: 0 },
-        };
+        }];
         const dummyPlateau = { length: 5, width: 5 };
-        const dummyInstructions = "LLLM";
+        const dummyInstructions = ["LLLM"];
         marsRover(dummyPlateau, dummyRover, dummyInstructions);
         //use spy 
         expect(RoverSpy).toHaveBeenCalledTimes(3);
