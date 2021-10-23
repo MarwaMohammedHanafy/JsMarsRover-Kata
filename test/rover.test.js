@@ -31,3 +31,36 @@ describe('test rover turn Right if send R', () => {
         expect(newRover.direction).toBe('E');
     });
 });
+describe('test invalid Moves', () => {
+    const dummyRover = {
+        direction: 'W',
+        position: { x: 0, y: 0 },
+    };
+    const dummyPlateau = { length: 5, width: 9 };
+    test('rover can not move to west  if its posY is 0 ', () => {
+        expect(() => {
+            moveForwardRequest(dummyRover, dummyPlateau);
+        }).toThrow("Move is out of Boundries");
+    });
+    dummyRover.direction = 'E';
+    dummyRover.position.y = 10;
+    test('rover can not move to east  if its posY is >=  Plateau.length ', () => {
+        expect(() => {
+            moveForwardRequest(dummyRover, dummyPlateau);
+        }).toThrow("Move is out of Boundries");
+    });
+    dummyRover.direction = 'N';
+    dummyRover.position.x = 6;
+    test('rover can not move to North  if its posX is is >=  Plateau.width ', () => {
+        expect(() => {
+            moveForwardRequest(dummyRover, dummyPlateau);
+        }).toThrow("Move is out of Boundries");
+    });
+    dummyRover.direction = 'S';
+    dummyRover.position.x = 0;
+    test('rover can not move to south  if its posX is 0 ', () => {
+        expect(() => {
+            moveForwardRequest(dummyRover, dummyPlateau);
+        }).toThrow("Move is out of Boundries");
+    });
+});
