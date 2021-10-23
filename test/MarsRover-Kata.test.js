@@ -53,3 +53,4 @@ describe('Test if the movement function get called based on relevant instruction
         expect(rover.moveRightRequest).toHaveBeenCalledTimes(0);
     });
 });
+
