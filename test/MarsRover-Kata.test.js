@@ -1,3 +1,5 @@
+/* eslint-disable padded-blocks */
+/* eslint-disable comma-dangle */
 /* eslint-disable max-len */
 /* eslint-disable object-curly-spacing */
 /* eslint-disable linebreak-style */
@@ -16,7 +18,7 @@ jest.mock('../src/rover.mjs');
 
 afterEach(() => {
     jest.clearAllMocks();
-  });
+});
 
 describe('Validate Inputs to marsRover', () => {
     const dummyRover = {
@@ -33,7 +35,7 @@ describe('Validate Inputs to marsRover', () => {
             marsRover(dummyPlateau);
         }).toThrow("rovers is required");
         expect(() => {
-            marsRover(dummyPlateau, dummyRover,dummyInstructions);
+            marsRover(dummyPlateau, dummyRover, dummyInstructions);
         }).toThrow("Invalid instraction K");
     });
 });
@@ -53,4 +55,5 @@ describe('Test if the movement function get called based on relevant instruction
         expect(rover.moveRightRequest).toHaveBeenCalledTimes(0);
     });
 });
+
 
