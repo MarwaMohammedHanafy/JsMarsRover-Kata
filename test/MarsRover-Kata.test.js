@@ -12,9 +12,9 @@
 const {
     marsRover,
 } = require('../src/MarsRover-Kata.mjs');
-const rover = require('../src/rover.mjs');
+const rover = require('../src/Rover.mjs');
 const RoverSpy = jest.spyOn(rover, 'moveLeftRequest');
-jest.mock('../src/rover.mjs');
+jest.mock('../src/Rover.mjs');
 
 afterEach(() => {
     jest.clearAllMocks();

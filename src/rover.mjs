@@ -51,11 +51,11 @@ const isObstacle = (rover, plateau) => {
     const { listOfObstacles } = plateau;
     for (const obstacle of listOfObstacles) {
         if (position.x === obstacle[0] && position.y === obstacle[1]) return true;
-      }
+    }
     return false;
 };
 
-const moveForwardRequest = (rover, plateau) => {
+const moveForwardRequest = (rover, plateau, obscaleDetectionIsAllowed) => {
 
     if (isOutBoundries(rover, plateau))
         throw new Error("Move is out of Boundries");
@@ -66,7 +66,7 @@ const moveForwardRequest = (rover, plateau) => {
             y: position.y + directionvalues[direction][1],
         }
     });
-    if (plateau.listOfObstacles && isObstacle(newRover, plateau))
+    if (obscaleDetectionIsAllowed && plateau.listOfObstacles && isObstacle(newRover, plateau))
         throw new Error("Get blocked By obstacle");
     return newRover;
 };
