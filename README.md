@@ -19,8 +19,9 @@ I use TDD approach.
 6.  Add test case for Input Validation for handle Invalid instruction.
 7.  Implement obstacle detection before each move. 
     If obstacles is predefined inside the Plateau can detected before each move and throw error.
+8. Communicate between the rovers to handle their movements.
+    Add rovers as obstacles inside the Plateau and can be detected before each move and throw error.
 
 Future phases:
 •	plateau can be any shape.
 •	planets are spheres.
-•	Communicate between the rovers to handle their movements.
