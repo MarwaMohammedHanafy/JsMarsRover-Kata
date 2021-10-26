@@ -1,21 +1,21 @@
-/* eslint-disable max-len */
-/* eslint-disable spaced-comment */
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable linebreak-style */
 
 const roverModule = require('./Rover.mjs');
 const plateauModule = require('../src/Plateau.mjs');
-
+/**
+ * 
+ * @param plateau {Object}
+ * @param rovers {Array of objects}
+ * @param instractionsArray {Array of String}
+ * @param obscaleDetectionIsAllowed {Boolean}
+ * @returns newRovers {Array of Objects}
+ */
 const marsRover = (plateau, rovers, instractionsArray, obscaleDetectionIsAllowed = false) => {
     if (!plateau) throw new Error("plateau is required");
     if (!rovers) throw new Error("rovers is required");
     if (!instractionsArray) throw new Error("instractions is required");
     //Add rovers in plateau as obstcales if obscale detection is allowed
     if (obscaleDetectionIsAllowed) {
-        plateau = plateauModule.addRoversAsObstacles(plateau, rovers);
+        plateauModule.addRoversAsObstacles(plateau, rovers);
     }
     const newRovers = [];
     for (let i = 0; i < rovers.length; i++) {

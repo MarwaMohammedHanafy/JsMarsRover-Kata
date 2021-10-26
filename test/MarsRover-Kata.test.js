@@ -1,13 +1,3 @@
-/* eslint-disable padded-blocks */
-/* eslint-disable comma-dangle */
-/* eslint-disable max-len */
-/* eslint-disable object-curly-spacing */
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable linebreak-style */
-
 
 const {
     marsRover,

@@ -1,13 +1,4 @@
-/* eslint-disable comma-dangle */
-/* eslint-disable curly */
-/* eslint-disable max-len */
-/* eslint-disable padded-blocks */
-/* eslint-disable object-curly-spacing */
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable linebreak-style */
+
 //Immutable 
 const directions = ['N', 'E', 'S', 'W'];
 const directionvalues = {
@@ -17,7 +8,10 @@ const directionvalues = {
     'W': [-1, 0],
 };
 
-
+/*
+ * @param rover {Object}
+ * @returns Index of Object
+ */
 const findDirectionIndex = rover => {
     const isDirection = (element) => element == rover.direction;
     return directions.findIndex(isDirection);
@@ -26,25 +20,21 @@ const findDirectionIndex = rover => {
 const moveLeftRequest = (rover) => {
     const directionNumber = findDirectionIndex(rover);
     const newDirection = directions[(directionNumber + 4 - 1) % 4];
-    const m = Object.assign({}, rover, { direction: newDirection });
-    console.log("moveLeftRequest" + m.direction + " " + m.position.x + " " + m.position.y);
-    return m;
+    return Object.assign({}, rover, { direction: newDirection });
 };
 
 const moveRightRequest = (rover) => {
     const directionNumber = findDirectionIndex(rover);
     const newDirection = directions[(directionNumber + 1) % 4];
-    const m = Object.assign({}, rover, { direction: newDirection });
-    console.log("moveRightRequest" + m.direction + " " + m.position.x + " " + m.position.y);
-    return m;
+    return Object.assign({}, rover, { direction: newDirection });
 };
 const isOutBoundries = (rover, plateau) => {
     const { direction, position } = rover;
     const { length, width } = plateau;
-    return ((direction === "N" && position.y <= 0) ||
+    return ((direction === "N" && position.y < 0) ||
         (direction === "E" && position.x >= length) ||
         (direction === "S" && position.y >= width) ||
-        (direction === "W" && position.x <= 0));
+        (direction === "W" && position.x < 0));
 };
 const isObstacle = (rover, plateau) => {
     const { position } = rover;
@@ -56,9 +46,6 @@ const isObstacle = (rover, plateau) => {
 };
 
 const moveForwardRequest = (rover, plateau, obscaleDetectionIsAllowed) => {
-
-    if (isOutBoundries(rover, plateau))
-        throw new Error("Move is out of Boundries");
     const { direction, position } = rover;
     const newRover = Object.assign({}, rover, {
         position: {
@@ -66,6 +53,8 @@ const moveForwardRequest = (rover, plateau, obscaleDetectionIsAllowed) => {
             y: position.y + directionvalues[direction][1],
         }
     });
+    if (isOutBoundries(rover, plateau))
+        throw new Error("Move is out of Boundries");
     if (obscaleDetectionIsAllowed && plateau.listOfObstacles && isObstacle(newRover, plateau))
         throw new Error("Get blocked By obstacle");
     return newRover;

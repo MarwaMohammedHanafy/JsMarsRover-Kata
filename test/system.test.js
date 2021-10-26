@@ -1,12 +1,4 @@
-/* eslint-disable padded-blocks */
-/* eslint-disable comma-dangle */
-/* eslint-disable max-len */
-/* eslint-disable object-curly-spacing */
-/* eslint-disable linebreak-style */
-/* eslint-disable quotes */
-/* eslint-disable linebreak-style */
-/* eslint-disable indent */
-/* eslint-disable linebreak-style */
+
 const {
     marsRover,
 } = require('../src/MarsRover-Kata.mjs');
@@ -69,6 +61,26 @@ describe('Test if multiple rovers get to the right place without considering obs
                 position: { x: 5, y: 1 },
             }]
         );
+
+    });
+});
+describe('Test if one rover is block another rover ', () => {
+    test('rover at pos 0 0  N wants to go  0 4  "MMMM" and blocked by rover in pos 0 2', () => {
+        const dummyRovers = [{
+            direction: 'N',
+            position: { x: 0, y: 0 },
+        },
+        {
+            direction: 'E',
+            position: { x: 0, y: 2 },
+        },
+        ];
+
+        const dummyPlateau = { length: 5, width: 5 };
+        const dummyInstructionsArray = ["MMMM", ""];
+        expect(() => {
+            marsRover(dummyPlateau, dummyRovers, dummyInstructionsArray, true);
+        }).toThrow("Get blocked By obstacle");
 
     });
 });
