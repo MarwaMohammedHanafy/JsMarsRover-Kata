@@ -64,3 +64,15 @@ describe('test invalid Moves', () => {
         }).toThrow("Move is out of Boundries");
     });
 });
+describe('test if  there is an obstacle in the way ', () => {
+    const dummyRover = {
+        direction: 'E',
+        position: { x: 0, y: 0 },
+    };
+    const dummyPlateau = { length: 5, width: 9, listOfObstacles: [[1, 0]] };
+    test('rover can not move to east  if there is obstacle in 1,0 ', () => {
+        expect(() => {
+            moveForwardRequest(dummyRover, dummyPlateau);
+        }).toThrow("Get blocked By obstacle");
+    });
+});

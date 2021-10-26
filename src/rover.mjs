@@ -46,20 +46,29 @@ const isOutBoundries = (rover, plateau) => {
         (direction === "S" && position.y >= width) ||
         (direction === "W" && position.x <= 0));
 };
+const isObstacle = (rover, plateau) => {
+    const { position } = rover;
+    const { listOfObstacles } = plateau;
+    for (const obstacle of listOfObstacles) {
+        if (position.x === obstacle[0] && position.y === obstacle[1]) return true;
+      }
+    return false;
+};
 
 const moveForwardRequest = (rover, plateau) => {
 
     if (isOutBoundries(rover, plateau))
         throw new Error("Move is out of Boundries");
     const { direction, position } = rover;
-    const m = Object.assign({}, rover, {
+    const newRover = Object.assign({}, rover, {
         position: {
             x: position.x + directionvalues[direction][0],
             y: position.y + directionvalues[direction][1],
         }
     });
-    console.log("moveRightRequest" + m.direction + " " + m.position.x + " " + m.position.y);
-    return m;
+    if (plateau.listOfObstacles && isObstacle(newRover, plateau))
+        throw new Error("Get blocked By obstacle");
+    return newRover;
 };
 
 module.exports = {

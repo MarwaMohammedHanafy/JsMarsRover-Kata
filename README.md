@@ -17,8 +17,10 @@ I use TDD approach.
 4.  Test if the movement function gets called from marsRover.
 5.  Test if the movement function by itself.
 6.  Add test case for Input Validation for handle Invalid instruction.
+7.  Implement obstacle detection before each move. 
+    If obstacles is predefined inside the Plateau can detected before each move and throw error.
 
 Future phases:
+•	plateau can be any shape.
 •	planets are spheres.
-•	Implement obstacle detection before each move.
 •	Communicate between the rovers to handle their movements.
