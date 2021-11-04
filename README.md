@@ -1,8 +1,3 @@
-<!-- review:
-While writing your .md file you can occasionally look at its preview (Ctrl + Shift + V) to make sure your formatting is correct.
-You can consider typing function names in italics to make them stand out from regular text. Demonstrated in the TDD approach section.
-Make sure spelling is correct, grammar is clear, and capitalisation is consistent.
--->
 # Instructions on how to use the app 
 Getting Started: 
 * git clone https://github.com/MarwaMohammedHanafy/JsMarsRover-Kata.git

@@ -24,5 +24,8 @@
 - for details see prior review commit
 
 # readme review comments
-- review was completed alongside suggested changes within readme.rd
+- while writing your .md file you can occasionally look at its preview (Ctrl + Shift + V) to make sure your formatting is correct.
+- you can consider typing function names in italics to make them stand out from regular text. Demonstrated in the TDD approach section.
+- make sure spelling is correct, grammar is clear, and capitalisation is consistent.
+- readme.rd has been updated with suggested changes
 - for details see prior review commit
