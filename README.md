@@ -1,3 +1,11 @@
+
+Instructions on how to use the app 
+"Getting Started: 
+git clone https://github.com/MarwaMohammedHanafy/JsMarsRover-Kata.git
+cd JsMarsRover-Kata 
+To install dependencies: npm install 
+To Run the tests: npm test
+
 I start with divide the system into 3 component Rover, Plateau and MarsRover-Kata which is consider the start point (main of the system). Also, I divide the test scenario. I use unit test for each component and component (integration test) for the whole system.
 
 Components: -
@@ -7,8 +15,10 @@ Rover Component’s public function:
 •   moveForwardRequest
 MarsRover-Kata Component’s public function: 
 •   marsRover (move the rover based on instruction)
-M Plateau Component’s public function:
-•   Still in progress (obstacle handling).
+navigatorSystem Component’s public function:
+•   addRoversAsObstacles
+•   removeOldPosition
+•   addNewPosition
 
 I use TDD approach. 
 1.  Assume The marsRover function handle array of rovers & array of Instruction without handle any obstacles (No collapse). 
@@ -25,3 +35,14 @@ I use TDD approach.
 Future phases:
 •	plateau can be any shape.
 •	planets are spheres.
+
+
+Instructions For linting guidelines. 
+
+1. Installing ESLint (Optional: Prettier) : npm install eslint prettier eslint-plugin-prettier eslint-config-prettier
+2. Configuring ESLint and Prettier Rules
+for ESLint:
+    .eslintrc.json
+for Prettier:
+    .prettierrc
+3. I use Formatting on Save in VS Code with ESLint
